@@ -1,16 +1,21 @@
 {
   "title": {
-    "text": "how to make **code** great again",
+    "text": "This is awesome",
     "delay": 1,
-    "animation": "flipInX"
+    "animation": "rotateInDownLeft"
   },
   "subline": {
-    "text": "⏱\uFE0F this takes 0.22 seconds",
-    "delay":5,
-    "animation": "slideInUp"
+    "text": "on \uD83D\uDD25. presenting code snippets in awesome \uD83D\uDE80",
+    "delay": 3,
+    "animation": "jackInTheBox"
   },
   "code": {
-    "text": "func generateRandomArray(size: Int, range: ClosedRange<Int>) -> [Int] {<br/>    var randomArray = Array(repeating: 0, count: size)<br/>      .map { _ in Int.random(in: range) }<br/><br/>    return randomArray  <br/>}\n",
-    "language": "swift"
+    "text": "const doTheMagic = (iterationCount: number): void => {<br/>    for let i = 0; i < iterationCount; i += 1) {<br/>        console.log(\"awesome\");<br/>    }  <br/>}\n",
+    "language": "ts",
+    "speed": 10
+  },
+  "style": {
+    "background": "mesh-pastel",
+    "text": "#fff"
   }
 }

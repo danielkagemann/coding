@@ -1,7 +1,5 @@
 import {useEffect, useState} from "react";
 import {Configuration, scheme} from "./model/Configuration.ts";
-
-import 'animate.css';
 import Slide from "./components/Slide.tsx";
 
 function App() {
@@ -15,17 +13,17 @@ function App() {
             });
     }
 
-  useEffect(() => {
-      fetchData()
-  }, []);
+    useEffect(() => {
+        fetchData()
+    }, []);
 
     if (scheme.safeParse(config).error) {
         return <div>loading data...</div>;
     }
 
-  return (
-      <Slide config={config}/>
-  )
+    return (
+        <Slide config={config}/>
+    )
 }
 
 export default App

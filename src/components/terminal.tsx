@@ -11,9 +11,13 @@ const Terminal: FC<Props> = ({config}) => {
     return (
         <div className="mac--window">
             <div className="header">
-                <div className="dot"/>
-                <div className="dot"/>
-                <div className="dot"/>
+                {config.window.menu && <div className={"menu"}>
+                    <div className="dot"/>
+                    <div className="dot"/>
+                    <div className="dot"/>
+                </div>
+                }
+                <span className={'title'}>{config.window.title}</span>
             </div>
 
             <div className="code">

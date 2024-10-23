@@ -1,18 +1,24 @@
-import { z } from "zod";
+import {z} from "zod";
 
 export const scheme = z.object({
+    window: z.object({
+        menu: z.boolean().default(true),
+        title: z.string().default("")
+    }).default({}),
     title: z.object({
-            text: z.string(),
-        delay:z.number().int().min(0).max(5),
-            animation: z.string()
-            }).optional(),
-    subline: z.object({
         text: z.string(),
-        delay:z.number().int().min(0).max(5),
+        delay: z.number().int().min(0).max(5),
         animation: z.string()
     }).optional(),
-    background: z.string().default("#242424"),
-    text: z.string().default("#eee"),
+    subline: z.object({
+        text: z.string(),
+        delay: z.number().int().min(0).max(5),
+        animation: z.string()
+    }).optional(),
+    style: z.object({
+        background: z.string().default("default"),
+        text: z.string().default("#eee")
+    }).default({}),
     code: z.object({
         text: z.string().default(""),
         language: z.string(),

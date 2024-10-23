@@ -1,9 +1,8 @@
 const code = `
-func generateRandomArray(size: Int, range: ClosedRange<Int>) -> [Int] {
-    var randomArray: [Int] = Array(repeating: 0, count: size)
-      .map { _ in Int.random(in: range) }
-
-    return randomArray  
+const doTheMagic = (iterationCount: number): void => {
+    for let i = 0; i < iterationCount; i += 1) {
+        console.log("awesome");
+    }  
 }
 `;
 

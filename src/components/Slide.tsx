@@ -7,12 +7,16 @@ type Props = {
     config: Configuration
 }
 const Slide: FC<Props> = ({config}) => (
-    <main style={{backgroundColor: config.background, color: config.text}}>
+    <main className={`bg-${config.style.background}`} style={{color: config.style.text}}>
         {config.title &&
-            <div className={`headline animate__animated animate__${config.title.animation} animate__delay-${config.title.delay}s`}><Markdown>{config.title.text}</Markdown></div>}
+            <div
+                className={`headline animate__animated animate__${config.title.animation} animate__delay-${config.title.delay}s`}>
+                <Markdown>{config.title.text}</Markdown></div>}
         <Terminal config={config}/>
         {config.subline &&
-            <div className={`subline animate__animated animate__${config.subline.animation} animate__delay-${config.subline.delay}s`}><Markdown>{config.subline.text}</Markdown></div>}
+            <div
+                className={`subline animate__animated animate__${config.subline.animation} animate__delay-${config.subline.delay}s`}>
+                <Markdown>{config.subline.text}</Markdown></div>}
 
     </main>
 );

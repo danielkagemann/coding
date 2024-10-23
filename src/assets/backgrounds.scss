@@ -1,0 +1,46 @@
+/**
+  see
+  - https://webgradients.com/ or
+  - https://cssgradient.io/gradient-backgrounds/
+  - https://www.mshr.app/
+  for inspiration
+ */
+.bg-default {
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+}
+
+.bg-mountain-rock {
+  background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
+}
+
+.bg-rainy {
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+}
+
+.bg-sunny {
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+}
+
+.bg-plum-plate {
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.bg-fly-high {
+  background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
+}
+
+.bg-wide-natrix {
+  background-image: linear-gradient(to top, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #7046aa 71%, #0c1db8 87%, #020f75 100%);
+}
+
+.bg-mesh-orange-plum {
+  background-color: hsla(14.588235294117649, 100%, 50%, 1);
+  background-image: radial-gradient(circle at 0% 99%, hsla(58.117647058823536, 100%, 50%, 1) 0%, transparent 67%), radial-gradient(circle at 46% 94%, hsla(14.588235294117649, 100%, 50%, 1) 0%, transparent 81%), radial-gradient(circle at 93% 95%, hsla(283.27868852459017, 100%, 23%, 1) 0%, transparent 66%), radial-gradient(circle at 89% 8%, hsla(253.469387755102, 100%, 9%, 1) 0%, transparent 150%);
+  background-blend-mode: normal, normal, normal, normal;
+}
+
+.bg-mesh-pastel {
+  background-color: hsla(14.588235294117649, 100%, 50%, 1);
+  background-image: radial-gradient(circle at 0% 99%, hsla(58.117647058823536, 100%, 50%, 1) 0%, transparent 67%), radial-gradient(circle at 46% 94%, hsla(14.588235294117649, 100%, 50%, 1) 0%, transparent 81%), radial-gradient(circle at 93% 95%, hsla(283.27868852459017, 100%, 23%, 1) 0%, transparent 66%), radial-gradient(circle at 89% 8%, hsla(253.469387755102, 100%, 9%, 1) 0%, transparent 150%);
+  background-blend-mode: normal, normal, normal, normal;
+}

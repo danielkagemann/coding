@@ -1,7 +1,29 @@
-.keyword { color: #7777f1; font-weight: bold; }
-.comment { color: #008000; font-style: italic; }
-.string { color: #A31515; }
-.number { color: #e8798e; }
-.type { color: #2B91AF; }
-.special { color: #D16969; }
-.constant { color: #DCDCAA; }
+.keyword {
+  color: #7777f1;
+  font-weight: bold;
+}
+
+.comment {
+  color: #42ba42;
+  font-style: italic;
+}
+
+.string {
+  color: #A31515;
+}
+
+.number {
+  color: #dc16e3;
+}
+
+.type {
+  color: #2B91AF;
+}
+
+.special {
+  color: #D16969;
+}
+
+.constant {
+  color: #DCDCAA;
+}

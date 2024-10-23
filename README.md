@@ -9,9 +9,14 @@ Just change the slides.json to fulfill your needs.
 
 - title is optional
 - subline is optional
+- code typewriting code snippet
 
-```
+```json
 {
+  "window": {
+    "menu": <true or false to show buttons>,
+    "title": <window title>
+  },
   "title": {
     "text": <markdown string here>,
     "delay": <seconds in the range from 1 to 5>,
@@ -24,17 +29,22 @@ Just change the slides.json to fulfill your needs.
   },
   "code": {
     "text": <your code snippet. you can use source-to-string.js for JSON string>
-    "language": <language. at the moment only swift is supported>
+    "language": <language. at the moment only swift is supported>,
+    "code": <milliseconds between type writing>
+  },
+  "style": {
+    "background": <background from preset>,
+    "text": <hex value of color for text>
   }
 }
 ```
 
 ## upcoming features 
 
-- more slides
+- more slides: next with delay
 - error handling for invalid json configuration
 - placement (at the moment all is centered)
-- background with gradient presets
+- min-width of terminal
 - adding images with placement
 - more languages (typescript/javascript)
 - control panel (refresh, manual mode)
