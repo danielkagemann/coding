@@ -3,7 +3,8 @@ import {z} from "zod";
 export const scheme = z.object({
     window: z.object({
         menu: z.boolean().default(true),
-        title: z.string().default("")
+        title: z.string().default(""),
+        width: z.string().default("auto")
     }).default({}),
     title: z.object({
         text: z.string(),

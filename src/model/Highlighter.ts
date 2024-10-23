@@ -45,10 +45,10 @@ const _typescript = (code: string): string => {
         //{ regex: /"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|`(?:\\.|[^`\\])*`/g, className: 'string' }, // Strings (single, double, template literals)
         { regex: /\b(const|let|var|function|class|interface|extends|implements|enum|type|if|else|for|while|do|return|switch|case|break|continue|import|export|default|new|throw|try|catch|finally|async|await|public|private|protected|static|get|set|readonly|as|in|of|instanceof|typeof|void|any|never|unknown|boolean|number|string|object)\b/g, className: 'keyword' }, // Keywords
         { regex: /\/\/.*/g, className: 'comment' }, // Single-line comments
-        { regex: /\/\*[\s\S]*?\*\//g, className: 'comment' }, // Multi-line comments
         { regex: /\b\d+(\.\d+)?\b/g, className: 'number' }, // Numbers
         { regex: /\b[A-Z][A-Za-z0-9_]*\b/g, className: 'type' }, // Type names (starting with capital letters)
         { regex: /\b(true|false|null|undefined|NaN|Infinity)\b/g, className: 'constant' }, // Boolean literals and special constants
+        { regex: /\/\*[\s\S]*?\*\//g, className: 'comment' }, // Multi-line comments
     ];
 
     return _processing(patterns, code);

@@ -9,7 +9,7 @@ type Props = {
 const Terminal: FC<Props> = ({config}) => {
 
     return (
-        <div className="mac--window">
+        <div className="mac--window" style={{width: config.window.width}}>
             <div className="header">
                 {config.window.menu && <div className={"menu"}>
                     <div className="dot"/>

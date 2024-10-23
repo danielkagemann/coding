@@ -15,7 +15,8 @@ Just change the slides.json to fulfill your needs.
 {
   "window": {
     "menu": <true or false to show buttons>,
-    "title": <window title>
+    "title": <window title>,
+    "width": <fix width. if empty calculated automatic>
   },
   "title": {
     "text": <markdown string here>,
@@ -44,10 +45,10 @@ Just change the slides.json to fulfill your needs.
 - more slides: next with delay
 - error handling for invalid json configuration
 - placement (at the moment all is centered)
-- min-width of terminal
 - adding images with placement
 - more languages only swift and typescript right now
 - control panel (refresh, manual mode)
 - export image
 - export presented as video
+- highlighting has some issues (comments can contain keywords, ...)
 - ...
