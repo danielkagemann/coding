@@ -33,7 +33,25 @@
     },
     "code": {
       "language": "swift",
-      "text": "// create simple view\nstruct ContentView: some View {\n   var body: some View {\n      }\n}"
+      "text": "// create simple view\nstruct ContentView: some View {\n  var body: some View {\n  }\n}\n"
+    }
+  },
+  {
+    "style": {
+      "background": "plum-plate",
+      "text": "#fff"
+    },
+    "headline": {
+      "text": "# Step 3",
+      "animation": "slideInBottom"
+    },
+    "subline": {
+      "text": "Chaining functions",
+      "animation": "rotateInLeft"
+    },
+    "code": {
+      "language": "swift",
+      "text": "// create simple view\nstruct ContentView: some View {\n  var body: some View {\n    Text(\"Hello World\")\n        .font(.caption)\n        .bold()\n  }\n}\n"
     }
   }
 ]

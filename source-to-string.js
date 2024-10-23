@@ -1,12 +1,16 @@
 const code = `
-# switch to home folder
-cd ~
-# check what is in there
-ls -alh
+// create simple view
+struct ContentView: some View {
+  var body: some View {
+    Text("Hello World")
+        .font(.caption)
+        .bold()
+  }
+}
 `;
 
 let result = code.trim();
-result = result.replaceAll('\n', '<br/>');
+//result = result.replaceAll('\n', '\\n');
 result = result.replaceAll('\r', "");
 result = result.replaceAll('"', "\"");
 console.log(result);
