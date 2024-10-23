@@ -1,5 +1,10 @@
 import {z} from "zod";
 
+export const insertionSchema = z.object({
+    pos: z.number(),
+    text: z.string()
+})
+
 export const slideSchema = z.object({
     terminal: z.object({
         menu: z.boolean().default(true),
@@ -23,7 +28,8 @@ export const slideSchema = z.object({
     code: z.object({
         text: z.string().default(""),
         language: z.string(),
-        speed: z.number().default(50)
+        speed: z.number().default(50),
+        insertions: z.array(insertionSchema).optional()
     }),
     next: z.number().int().min(0).max(5).default(2),
 });

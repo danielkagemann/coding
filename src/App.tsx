@@ -27,6 +27,7 @@ function App() {
         (sl.subline?.delay ?? 0) * 1000 +
         (sl.subline ? DURATION : 0) +
         sl.code.text.length * sl.code.speed +
+        ((sl.code.insertions ?? []).length * 1000) +
         (sl.next * 1000)) : 0;
 
     useEffect(() => {

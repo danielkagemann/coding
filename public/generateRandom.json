@@ -1,20 +1,22 @@
-{
-  "window": {
-    "title": "random.swift"
-  },
-  "title": {
-    "text": "how to make **code** great again",
-    "delay": 1,
-    "animation": "flipInX"
-  },
-  "subline": {
-    "text": "⏱\uFE0F this takes 0.22 seconds",
-    "delay": 5,
-    "animation": "fadeInUp"
-  },
-  "code": {
-    "text": "func generateRandomArray(size: Int, range: ClosedRange<Int>) -> [Int] {<br/>    var randomArray = Array(repeating: 0, count: size)<br/>      .map { _ in Int.random(in: range) }<br/><br/>    return randomArray  <br/>}\n",
-    "language": "swift",
-    "speed": 20
+[
+  {
+    "terminal": {
+      "title": "random.swift"
+    },
+    "headline": {
+      "text": "how to make **code** great again",
+      "delay": 1,
+      "animation": "flipInX"
+    },
+    "subline": {
+      "text": "⏱\uFE0F this takes 0.22 seconds",
+      "delay": 5,
+      "animation": "fadeInUp"
+    },
+    "code": {
+      "text": "func generateRandomArray(size: Int, range: ClosedRange<Int>) -> [Int] {<br/>    var randomArray = Array(repeating: 0, count: size)<br/>      .map { _ in Int.random(in: range) }<br/><br/>    return randomArray  <br/>}\n",
+      "language": "swift",
+      "speed": 20
+    }
   }
-}
+]

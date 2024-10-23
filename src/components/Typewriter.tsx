@@ -23,9 +23,8 @@ const Typewriter: FC<Props> = ({text, language, speed = 30}) => {
         }
     }, [index, speed, text.length]);
 
-    return <pre>
-        <code dangerouslySetInnerHTML={{__html: $Highlighter.forLanguage(language, text.substring(0, index))}}/>
-    </pre>;
+    return <code dangerouslySetInnerHTML={{__html: $Highlighter.forLanguage(language, text.substring(0, index))}}/>
+
 }
 
 export default Typewriter;
