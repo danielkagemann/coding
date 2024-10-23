@@ -1,7 +1,7 @@
 import {FC} from "react";
 import {Configuration} from "../model/Configuration.ts";
 import Markdown from 'react-markdown'
-import Terminal from "./terminal.tsx";
+import Terminal from "./Terminal.tsx";
 
 type Props = {
     config: Configuration

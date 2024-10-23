@@ -1,4 +1,4 @@
-import TypeWriter from './typewriter.tsx';
+import Typewriter from './Typewriter.tsx';
 import {Configuration} from "../model/Configuration.ts";
 import {FC} from "react";
 
@@ -21,7 +21,7 @@ const Terminal: FC<Props> = ({config}) => {
             </div>
 
             <div className="code">
-                <TypeWriter text={config.code.text} language={config.code.language} speed={config.code.speed}/>
+                <Typewriter text={config.code.text} language={config.code.language} speed={config.code.speed}/>
             </div>
         </div>
     );

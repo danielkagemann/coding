@@ -1,5 +1,5 @@
 import {FC, useEffect, useState} from "react";
-import {$Highlighter} from "../model/highlighter.ts";
+import {$Highlighter} from "../model/Highlighter.ts";
 
 type Props = {
     text: string,
@@ -7,7 +7,7 @@ type Props = {
     speed: number
 };
 
-const TypeWriter: FC<Props> = ({text, language, speed = 30}) => {
+const Typewriter: FC<Props> = ({text, language, speed = 30}) => {
     const [index, setIndex] = useState<number>(0);
 
     useEffect(() => {
@@ -23,4 +23,4 @@ const TypeWriter: FC<Props> = ({text, language, speed = 30}) => {
     </pre>;
 }
 
-export default TypeWriter;
+export default Typewriter;

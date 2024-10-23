@@ -29,7 +29,7 @@ Just change the slides.json to fulfill your needs.
   },
   "code": {
     "text": <your code snippet. you can use source-to-string.js for JSON string>
-    "language": <language. at the moment only swift is supported>,
+    "language": <language. supported is "swift", "typescript">,
     "code": <milliseconds between type writing>
   },
   "style": {
@@ -46,6 +46,8 @@ Just change the slides.json to fulfill your needs.
 - placement (at the moment all is centered)
 - min-width of terminal
 - adding images with placement
-- more languages (typescript/javascript)
+- more languages only swift and typescript right now
 - control panel (refresh, manual mode)
+- export image
+- export presented as video
 - ...
