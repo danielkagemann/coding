@@ -1,24 +1,19 @@
 {
   "title": {
-    "text": "This is awesome",
+    "text": "\uD83D\uDC07 follow the white rabbit ",
     "delay": 1,
-    "animation": "rotateInDownLeft"
+    "animation": "slideInDown"
   },
   "window": {
-    "width": "520px"
-  },
-  "subline": {
-    "text": "on \uD83D\uDD25. presenting code snippets in awesome \uD83D\uDE80",
-    "delay": 3,
-    "animation": "jackInTheBox"
+    "title": "unsure-about-the-filename.sh"
   },
   "code": {
-    "text": "// internal use only!\nconst doTheMagic = (iterationCount: number): void => {<br/>    for let i = 0; i < iterationCount; i += 1) {<br/>        console.log(\"awesome\");<br/>    }  <br/>}\n",
-    "language": "ts",
-    "speed": 10
+    "text": "# switch to home folder<br/>cd ~<br/># check what is in there<br/>ls -alh\n",
+    "language": "bash",
+    "speed": 25
   },
   "style": {
-    "background": "mesh-pastel",
-    "text": "#fff"
+    "background": "mesh-blech",
+    "text": "#efefef"
   }
 }

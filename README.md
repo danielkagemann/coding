@@ -46,6 +46,7 @@ Just change the slides.json to fulfill your needs.
 - error handling for invalid json configuration
 - placement (at the moment all is centered)
 - adding images with placement
+- different fonts
 - more languages only swift and typescript right now
 - control panel (refresh, manual mode)
 - export image

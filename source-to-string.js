@@ -1,9 +1,8 @@
 const code = `
-const doTheMagic = (iterationCount: number): void => {
-    for let i = 0; i < iterationCount; i += 1) {
-        console.log("awesome");
-    }  
-}
+# switch to home folder
+cd ~
+# check what is in there
+ls -alh
 `;
 
 let result = code.trim();
