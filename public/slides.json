@@ -1,19 +1,39 @@
-{
-  "title": {
-    "text": "\uD83D\uDC07 follow the white rabbit ",
-    "delay": 1,
-    "animation": "slideInDown"
+[
+  {
+    "style": {
+      "background": "plum-plate",
+      "text": "#fff"
+    },
+    "headline": {
+      "text": "# Step 1",
+      "animation": "flipInX"
+    },
+    "subline": {
+      "text": "Swift UI is quite simple",
+      "animation": "fadeIn"
+    },
+    "code": {
+      "language": "swift",
+      "text": "// create simple view\nstruct ContentView: some View {\n}"
+    },
+    "next": 2
   },
-  "window": {
-    "title": "unsure-about-the-filename.sh"
-  },
-  "code": {
-    "text": "# switch to home folder<br/>cd ~<br/># check what is in there<br/>ls -alh\n",
-    "language": "bash",
-    "speed": 25
-  },
-  "style": {
-    "background": "mesh-blech",
-    "text": "#efefef"
+  {
+    "style": {
+      "background": "plum-plate",
+      "text": "#fff"
+    },
+    "headline": {
+      "text": "# Step 2",
+      "animation": "slideInLeft"
+    },
+    "subline": {
+      "text": "the body is main renderer",
+      "animation": "fadeIn"
+    },
+    "code": {
+      "language": "swift",
+      "text": "// create simple view\nstruct ContentView: some View {\n   var body: some View {\n      }\n}"
+    }
   }
-}
+]

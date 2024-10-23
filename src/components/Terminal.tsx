@@ -1,27 +1,26 @@
 import Typewriter from './Typewriter.tsx';
-import {Configuration} from "../model/Configuration.ts";
+import { ConfigurationSlide} from "../model/Configuration.ts";
 import {FC} from "react";
 
 type Props = {
-    config: Configuration
+    data: ConfigurationSlide
 };
 
-const Terminal: FC<Props> = ({config}) => {
-
+const Terminal: FC<Props> = ({data}) => {
     return (
-        <div className="mac--window" style={{width: config.window.width}}>
+        <div className="mac--window" style={{width: data.terminal.width}}>
             <div className="header">
-                {config.window.menu && <div className={"menu"}>
+                {data.terminal.menu && <div className={"menu"}>
                     <div className="dot"/>
                     <div className="dot"/>
                     <div className="dot"/>
                 </div>
                 }
-                <span className={'title'}>{config.window.title}</span>
+                <span className={'title'}>{data.terminal.title}</span>
             </div>
 
             <div className="code">
-                <Typewriter text={config.code.text} language={config.code.language} speed={config.code.speed}/>
+                <Typewriter text={data.code.text} language={data.code.language} speed={data.code.speed}/>
             </div>
         </div>
     );

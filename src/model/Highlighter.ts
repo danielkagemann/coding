@@ -54,29 +54,12 @@ const _typescript = (code: string): string => {
     return _processing(patterns, code);
 };
 
-const _bash = (code: string): string => {
-    const patterns:HighlightPattern[] = [
-        // { regex: /"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'/g, className: 'string' }, // Strings (single and double quoted)
-        { regex: /\b(if|then|else|elif|fi|for|while|do|done|in|case|esac|function|select|until|break|continue|return|exit)\b/g, className: 'keyword' }, // Bash keywords
-        { regex: /#[^\n]*/g, className: 'comment' }, // Single-line comments (starting with #)
-        { regex: /\$\w+/g, className: 'variable' }, // Variables like $var or ${var}
-        { regex: /\b\d+(\.\d+)?\b/g, className: 'number' }, // Numbers
-        { regex: /\b(true|false|null)\b/g, className: 'constant' }, // Boolean literals and null
-        { regex: /\b(echo|cd|ls|pwd|grep|awk|sed|chmod|chown|mkdir|rm|touch|cat|head|tail|find|exit)\b/g, className: 'keyword' }, // Common bash commands
-    ];
-
-    return _processing(patterns, code);
-};
-
 const forLanguage = (language: string, code: string): string => {
     if (language === 'swift') {
         return _swift(code);
     }
     if (language === 'ts' ||language === 'typescript') {
         return _typescript(code);
-    }
-    if (language === 'bash') {
-        return _bash(code);
     }
     // untouched
     return code;

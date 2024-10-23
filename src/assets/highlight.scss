@@ -3,9 +3,10 @@
   font-weight: bold;
 }
 
-.comment {
+.comment, .comment > * {
   color: #42ba42;
   font-style: italic;
+  font-weight:normal;
 }
 
 .string {

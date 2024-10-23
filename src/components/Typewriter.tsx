@@ -10,6 +10,11 @@ type Props = {
 const Typewriter: FC<Props> = ({text, language, speed = 30}) => {
     const [index, setIndex] = useState<number>(0);
 
+    // refresh
+    useEffect(() => {
+        setIndex(0);
+    }, [text]);
+
     useEffect(() => {
         if (index < text.length) {
             setTimeout(() => {

@@ -1,25 +1,25 @@
 import {FC} from "react";
-import {Configuration} from "../model/Configuration.ts";
+import { ConfigurationSlide} from "../model/Configuration.ts";
 import Markdown from 'react-markdown'
 import Terminal from "./Terminal.tsx";
 
 type Props = {
-    config: Configuration
+    data: ConfigurationSlide
 }
-const Slide: FC<Props> = ({config}) => (
-    <main className={`bg-${config.style.background}`} style={{color: config.style.text}}>
+const Slide: FC<Props> = ({data}) => (
+    <main className={`bg-${data.style.background}`} style={{color: data.style.text}}>
         {
-            config.title &&
+            data.headline &&
             <div
-                className={`headline animate__animated animate__${config.title.animation} animate__delay-${config.title.delay}s`}>
-                <Markdown>{config.title.text}</Markdown></div>
+                className={`headline animate__animated animate__${data.headline.animation} animate__delay-${data.headline.delay}s`}>
+                <Markdown>{data.headline.text}</Markdown></div>
         }
-        <Terminal config={config}/>
+        <Terminal data={data}/>
         {
-            config.subline &&
+            data.subline &&
             <div
-                className={`subline animate__animated animate__${config.subline.animation} animate__delay-${config.subline.delay}s`}>
-                <Markdown>{config.subline.text}</Markdown></div>
+                className={`subline animate__animated animate__${data.subline.animation} animate__delay-${data.subline.delay}s`}>
+                <Markdown>{data.subline.text}</Markdown></div>
         }
 
     </main>
