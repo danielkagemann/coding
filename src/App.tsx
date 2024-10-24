@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
-import {Configuration, scheme} from "./model/Configuration.ts";
+import {Configuration, estimatedSlideDuration, scheme} from "./model/Configuration.ts";
 import Slide from "./components/Slide.tsx";
 
-const DURATION = 1000;
+// const DURATION = 1000;
 
 function App() {
     const [config, setConfig] = useState<Configuration>({} as Configuration);
@@ -21,24 +21,11 @@ function App() {
         fetchData()
     }, []);
 
-    const sl = config[index];
-    const delay: number = sl ? ((sl.headline?.delay ?? 0) * 1000 +
-        (sl.headline ? DURATION : 0) +
-        (sl.subline?.delay ?? 0) * 1000 +
-        (sl.subline ? DURATION : 0) +
-        sl.code.text.length * sl.code.speed +
-        ((sl.code.insertions ?? []).length * 1000) +
-        (sl.next * 1000)) : 0;
-
     useEffect(() => {
-        if (index >= 0) {
-            // calculate the time to wait until going to the next
-            console.log(`waiting for ${delay}ms before next slide`);
+        if (index + 1 < config.length) {
             setTimeout(() => {
-                if (index + 1 < config.length) {
-                    setIndex((id) => id + 1);
-                }
-            }, delay);
+                setIndex(index + 1);
+            }, estimatedSlideDuration(config[index]));
         }
     }, [index]);
 
@@ -46,20 +33,9 @@ function App() {
         return <div>loading data...</div>;
     }
 
+
     return (
-        <>
-            <Slide data={config[index]}/>
-            <div className={'timeuntilnext'}
-                 key={`timer-${index}`}>
-                <div className={'state'}
-                     style={{
-                         animationDuration: `${delay}ms`,
-                         animationName: 'progress',
-                         animationFillMode: 'forwards',
-                         backgroundColor: `${sl.style.text}`
-                     }}/>
-            </div>
-        </>
+        <Slide data={config[index]} duration={estimatedSlideDuration(config[index])}/>
     )
 }
 

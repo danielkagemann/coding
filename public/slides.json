@@ -1,36 +1,46 @@
 [
   {
     "terminal": {
-      "title": "random.swift",
-      "width": "500px"
+      "title": "generate random",
+      "width": "620px"
     },
     "headline": {
-      "text": "step by step",
-      "delay": 1,
+      "text": "# Step 1",
+      "wait": 1,
       "animation": "flipInX"
     },
     "code": {
-      "text": "func test () {\n}",
-      "language": "swift",
-      "speed": 20,
-      "insertions": [
+      "steps": [
         {
-          "pos": 15,
-          "text": "   let showDetails: Bool = false\n"
-        },{
-          "pos": 48,
-          "text": "   var body: some View {\n   }\n"
-        },{
-          "pos": 73,
-          "text": "      Text(\"hello world\")\n"
-        },{
-          "pos": 100,
-          "text": "         .bold() // make it bold\n"
-        },{
-          "pos": 134,
-          "text": "         .foreGroundStyle(.blue) // change color\n"
+          "text": "var randomArray = Array(repeating: 0, count: size)\n      .map { _ in Int.random(in: range) }",
+          "wait": 1,
+          "speed": 0.1
         }
-      ]
+      ],
+      "initial": "func generateRandom (size: Int, range: ClosedRange<Int>) -> Void {\n   _1_\n}",
+      "language": "swift"
+    }
+  },
+  {
+    "terminal": {
+      "title": "generate random",
+      "width": "620px"
+    },
+    "headline": {
+      "text": "# Step 2",
+      "wait": 1,
+      "animation": "flipInY"
+    },
+    "code": {
+      "steps": [
+        {
+          "text": "// some other routine which might be more performant",
+          "wait": 1,
+          "speed": 0.1
+        }
+      ],
+      "initial": "func generateRandom (size: Int, range: ClosedRange<Int>) -> Void {\n   _1_\n}",
+      "language": "swift"
     }
   }
 ]

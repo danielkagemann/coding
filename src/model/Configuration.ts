@@ -1,8 +1,9 @@
 import {z} from "zod";
 
-export const insertionSchema = z.object({
-    pos: z.number(),
-    text: z.string()
+export const stepSchema = z.object({
+    text: z.string(),
+    speed: z.number().default(0.1),
+    wait: z.number().min(0).max(5).default(1)
 })
 
 export const slideSchema = z.object({
@@ -17,19 +18,18 @@ export const slideSchema = z.object({
     }).default({}),
     headline: z.object({
         text: z.string(),
-        delay: z.number().int().min(0).max(5).default(0),
+        wait: z.number().int().min(0).max(5).default(0),
         animation: z.string()
     }).optional(),
     subline: z.object({
         text: z.string(),
-        delay: z.number().int().min(0).max(5).default(0),
+        wait: z.number().int().min(0).max(5).default(0),
         animation: z.string()
     }).optional(),
     code: z.object({
-        text: z.string().default(""),
         language: z.string(),
-        speed: z.number().default(50),
-        insertions: z.array(insertionSchema).optional()
+        initial: z.string().default(""),
+        steps: z.array(stepSchema)
     }),
     next: z.number().int().min(0).max(5).default(2),
 });
@@ -40,3 +40,22 @@ export const scheme = z.array(
 
 export type Configuration = z.infer<typeof scheme>;
 export type ConfigurationSlide = z.infer<typeof slideSchema>;
+export type CodeStep = z.infer<typeof stepSchema>;
+
+export function estimatedSlideDuration (slide: ConfigurationSlide): number {
+    let duration = 0;
+    if (slide.headline) {
+        duration += slide.headline.wait * 1000;
+    }
+    if (slide.subline) {
+        duration += slide.subline.wait * 1000;
+    }
+    slide.code.steps.forEach((sl) => {
+        duration += (sl.wait * 1000);
+        duration += sl.text.length * (sl.speed * 1000);
+    })
+
+    duration += slide.next * 1000;
+    console.log(`estimated time for slide is ${duration}ms`);
+    return duration;
+}

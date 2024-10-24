@@ -1,21 +1,30 @@
 import {useEffect, useState} from "react";
 
-export const useTypewriter = (text: string, speed: number) => {
-    const [currentText, setCurrentText] = useState('');
-    const [index, setIndex] = useState(0);
+export const useTypewriter = () => {
+    const [data, setData] = useState(
+        {text: '', speed: 0.2, index: 0, value: '', callback: Function}
+    );
 
     useEffect(() => {
-        if (index < text.length) {
-            const timeoutId = setTimeout(() => {
-                // Füge das nächste Zeichen hinzu und erhöhe den Index
-                setCurrentText((prev) => prev + text[index]);
-                setIndex((prev) => prev + 1);
-            }, speed);
-
-            // Clear Timeout beim Umounting oder wenn sich der Index ändert
-            return () => clearTimeout(timeoutId);
+        if (data.index < data.text.length) {
+            setTimeout(() => {
+                const tmp = {...data};
+                tmp.value += tmp.text[tmp.index];
+                tmp.index += 1;
+                setData(tmp)
+            }, data.speed * 1000);
+        } else {
+            data.callback()
         }
-    }, [index, text, speed]);
+    }, [data]);
 
-    return currentText;
+    return {
+        value: data.value,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+        update: (text: string, speed: number, callback: Function) => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
+            setData({text, speed, value: '', index: 0, callback});
+        }
+    }
 }
