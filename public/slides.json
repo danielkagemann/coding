@@ -1,46 +1,34 @@
 [
   {
-    "terminal": {
-      "title": "generate random",
-      "width": "620px"
-    },
     "headline": {
-      "text": "# Step 1",
-      "wait": 1,
-      "animation": "flipInX"
+      "text": "step by step",
+      "wait": 0,
+      "animation": "fadeIn"
+    },
+    "terminal": {
+      "title": "swift",
+      "width": "520px"
     },
     "code": {
+      "initial": "_1_",
       "steps": [
         {
-          "text": "var randomArray = Array(repeating: 0, count: size)\n      .map { _ in Int.random(in: range) }",
+          "text": "// okay! let's begin. different speed\n_2_",
           "wait": 1,
-          "speed": 0.1
-        }
-      ],
-      "initial": "func generateRandom (size: Int, range: ClosedRange<Int>) -> Void {\n   _1_\n}",
-      "language": "swift"
-    }
-  },
-  {
-    "terminal": {
-      "title": "generate random",
-      "width": "620px"
-    },
-    "headline": {
-      "text": "# Step 2",
-      "wait": 1,
-      "animation": "flipInY"
-    },
-    "code": {
-      "steps": [
+          "speed": 0.01
+        },
         {
-          "text": "// some other routine which might be more performant",
+          "text": "struct ContentView: some View {\n  var body: some View {\n    Text(\"Hello World\")\n        .font(.caption)\n        .bold()\n  }\n}\n",
           "wait": 1,
-          "speed": 0.1
+          "speed": 0.05
         }
       ],
-      "initial": "func generateRandom (size: Int, range: ClosedRange<Int>) -> Void {\n   _1_\n}",
-      "language": "swift"
+      "language": "swift",
+      "speed": 0.01
+    },
+    "style": {
+      "background": "plum-plate",
+      "text": "#fff"
     }
   }
 ]

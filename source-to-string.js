@@ -1,5 +1,4 @@
 const code = `
-// create simple view
 struct ContentView: some View {
   var body: some View {
     Text("Hello World")

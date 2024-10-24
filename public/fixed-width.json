@@ -1,7 +1,7 @@
 [{
   "headline": {
     "text": "This is awesome",
-    "delay": 1,
+    "wait": 1,
     "animation": "rotateInDownLeft"
   },
   "terminal": {
@@ -9,13 +9,20 @@
   },
   "subline": {
     "text": "on \uD83D\uDD25. presenting code snippets in awesome \uD83D\uDE80",
-    "delay": 3,
+    "wait": 3,
     "animation": "jackInTheBox"
   },
   "code": {
-    "text": "// internal use only!\nconst doTheMagic = (iterationCount: number): void => {<br/>    for let i = 0; i < iterationCount; i += 1) {<br/>        console.log(\"awesome\");<br/>    }  <br/>}\n",
+    "initial": "_1_",
+    "steps": [
+      {
+        "text": "// internal use only!\nconst doTheMagic = (iterationCount: number): void => {\n    for let i = 0; i < iterationCount; i += 1) {\n        console.log(\"awesome\");\n    }  \n}\n",
+        "wait": 1,
+        "speed": 0.1
+      }
+    ],
     "language": "ts",
-    "speed": 10
+    "speed": 0.01
   },
   "style": {
     "background": "mesh-pastel",
