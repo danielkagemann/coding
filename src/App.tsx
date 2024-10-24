@@ -2,8 +2,6 @@ import {useEffect, useState} from "react";
 import {Configuration, estimatedSlideDuration, scheme} from "./model/Configuration.ts";
 import Slide from "./components/Slide.tsx";
 
-// const DURATION = 1000;
-
 function App() {
     const [config, setConfig] = useState<Configuration>({} as Configuration);
     const [index, setIndex] = useState<number>(-1);

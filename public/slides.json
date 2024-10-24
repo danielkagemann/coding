@@ -18,9 +18,14 @@
           "speed": 0.01
         },
         {
-          "text": "struct ContentView: some View {\n  var body: some View {\n    Text(\"Hello World\")\n        .font(.caption)\n        .bold()\n  }\n}\n",
+          "text": "struct ContentView: some View {\n  var body: some View {\n    Text(\"Hello World\")\n_3_        .font(.caption)\n        .bold()\n  }\n}\n",
           "wait": 1,
           "speed": 0.05
+        },
+        {
+          "text": "        // styling text\n",
+          "wait": 1,
+          "speed": 0.01
         }
       ],
       "language": "swift",
