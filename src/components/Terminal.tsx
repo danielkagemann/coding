@@ -1,5 +1,5 @@
 import {ConfigurationSlide} from "../model/Configuration.ts";
-import {FC, useEffect, useState} from "react";
+import {FC, ReactElement, useEffect, useState} from "react";
 import {$Highlighter} from "../model/Highlighter.ts";
 import {useCodeSteps} from "../model/useCodeSteps.ts";
 
@@ -36,6 +36,20 @@ const Terminal: FC<Props> = ({data}) => {
         return code.replace(`_${stepper.step + 1}_`, stepper.typer.value);
     }
 
+    function renderLineNumbers(): ReactElement | null {
+        if (!data.code.linenumbers) {
+            return null;
+        }
+        const lines = dynamicCode().split('\n').map((_, index) => `${index + 1}`)
+        return (
+            <div className={'numbers'}>
+                <pre><code>
+                {lines.join('\n')}
+                </code></pre>
+            </div>
+        );
+    }
+
     return (
         <div className="mac--window" style={{width: data.terminal.width}}>
             <div className="header">
@@ -48,11 +62,14 @@ const Terminal: FC<Props> = ({data}) => {
                 <span className={'title'}>{data.terminal.title}</span>
             </div>
 
-            <div className="code">
+            <div className="code--container">
+                {renderLineNumbers()}
+                <div className="code">
                 <pre>
                     <code
                         dangerouslySetInnerHTML={{__html: $Highlighter.forLanguage(data.code.language, dynamicCode())}}/>
                 </pre>
+                </div>
             </div>
         </div>
     );

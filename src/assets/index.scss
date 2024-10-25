@@ -63,11 +63,26 @@ main {
 }
 
 .mac--window {
-  .code {
+
+  .code--container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
     padding: 1rem;
     font-family: var(--monospaced);
     font-weight: normal;
     font-size: 0.9rem;
+    position: relative;
+
+    .numbers {
+      width: 40px;
+      height: 100%;
+      opacity: 0.6;
+    }
+
+    .code {
+      // nothing yet
+    }
   }
 
   .header {

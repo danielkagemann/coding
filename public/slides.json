@@ -1,7 +1,7 @@
 [
   {
     "headline": {
-      "text": "step by step",
+      "text": "line numbers for all",
       "wait": 0,
       "animation": "fadeIn"
     },
@@ -10,34 +10,20 @@
       "width": "520px"
     },
     "code": {
+      "linenumbers": true,
       "initial": "_1_",
       "steps": [
         {
-          "text": "// okay! let's begin. different speed\n_2_",
+          "text": "struct Data {\n   var name: String\n}",
           "wait": 1,
           "speed": 0.01
-        },
-        {
-          "text": "struct ContentView: some View {\n  var body: some View {\n    Text(\"Hello World\")\n_3_        .font(.caption)\n        .bold()\n  }\n}\n",
-          "wait": 1,
-          "speed": 0.05
-        },
-        {
-          "text": "_4_\n",
-          "wait": 1,
-          "speed": 0.1
-        },
-        {
-          "text": "        // styling text",
-          "wait" : 1,
-          "speed": 0.1
         }
       ],
       "language": "swift",
       "speed": 0.01
     },
     "style": {
-      "background": "plum-plate",
+      "background": "mountain-rock",
       "text": "#fff"
     }
   }

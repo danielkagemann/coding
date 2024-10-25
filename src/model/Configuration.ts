@@ -10,7 +10,7 @@ export const slideSchema = z.object({
     terminal: z.object({
         menu: z.boolean().default(true),
         title: z.string().default(""),
-        width: z.string().default("auto")
+        width: z.string().default("auto"),
     }).default({}),
     style: z.object({
         background: z.string().default("default"),
@@ -27,6 +27,7 @@ export const slideSchema = z.object({
         animation: z.string()
     }).optional(),
     code: z.object({
+        linenumbers: z.boolean().optional().default(false),
         language: z.string(),
         initial: z.string().default(""),
         steps: z.array(stepSchema)

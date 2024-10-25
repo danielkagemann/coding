@@ -58,4 +58,5 @@ for headline and subline you can use markdown.
 - control panel (refresh, manual mode)
 - export image
 - export presented as video
+- line numbers
 - ...
