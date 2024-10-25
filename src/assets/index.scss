@@ -38,6 +38,7 @@ main {
   overflow: hidden;
   place-items: center;
   place-content: center;
+  position: relative;
 }
 
 .mac--window {
@@ -126,6 +127,10 @@ main {
 }
 
 @keyframes progress {
-  from {width: 0}
-  to {width: 100%;}
+  from {
+    width: 0
+  }
+  to {
+    width: 100%;
+  }
 }
