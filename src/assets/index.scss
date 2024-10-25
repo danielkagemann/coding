@@ -16,6 +16,8 @@
   --window-header-close: #ca0936;
   --window-header-min: #e0be17;
   --window-header-max: #0dac0d;
+
+  --monospaced: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', Courier, monospace;
 }
 
 * {
@@ -43,6 +45,8 @@ main {
   background-color: var(--window-bg);
   color: var(--window-text);
 
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
   width: auto;
   min-width: 200px;
   height: auto;
@@ -60,7 +64,7 @@ main {
 .mac--window {
   .code {
     padding: 1rem;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--monospaced);
     font-weight: normal;
     font-size: 0.9rem;
   }
@@ -74,7 +78,7 @@ main {
 
     .title {
       font-size: 0.8rem;
-      font-family: monospace;
+      font-family: var(--monospaced);
       padding-right: 0.5rem;
     }
 
@@ -108,16 +112,16 @@ main {
 
 .timeuntilnext {
   position: fixed;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
-  height: 0.5rem;
+  bottom: 2rem;
+  left: 5rem;
+  right: 5rem;
+  height: 0.2rem;
 
   .state {
     width: 0;
     height: 100%;
-    border-radius: 0.5rem;
-    opacity: 0.6;
+    border-radius: 0.2rem;
+    opacity: 0.3;
   }
 }
 

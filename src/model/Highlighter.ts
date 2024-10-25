@@ -27,6 +27,7 @@ const _swift = (code: string): string => {
     // Define regular expressions for different parts of Swift syntax
     const patterns: HighlightPattern[] = [
         //{ regex: /"(?:\\.|[^"\\])*"/g, className: 'string' }, // Double-quoted strings with escape sequences
+        // { regex: /"[^"]*"/g, className: 'string' }, // Double-quoted strings with escape sequences
         {
             regex: /\b(let|var|func|class|struct|if|else|for|while|return|import|public|private|fileprivate|internal|enum|case|switch|do|catch|try|guard|defer|init|self)\b/g,
             className: 'keyword'

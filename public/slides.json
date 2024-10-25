@@ -23,9 +23,14 @@
           "speed": 0.05
         },
         {
-          "text": "        // styling text\n",
+          "text": "_4_\n",
           "wait": 1,
-          "speed": 0.01
+          "speed": 0.1
+        },
+        {
+          "text": "        // styling text",
+          "wait" : 1,
+          "speed": 0.1
         }
       ],
       "language": "swift",
