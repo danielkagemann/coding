@@ -11,11 +11,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --window-bg: #444;
-  --window-text: #eee;
-  --window-header-close: #ca0936;
-  --window-header-min: #e0be17;
-  --window-header-max: #0dac0d;
+  --terminal-header: #1B1F24;
+  --terminal-bg: #0D1117;
+  --terminal-text: #eee;
+  --terminal-header-close: #FF5F57;
+  --terminal-header-min: #FEBC2E;
+  --terminal-header-max: #28C841;
+  --terminal-border: 12px;
 
   --monospaced: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', Courier, monospace;
 }
@@ -41,10 +43,10 @@ main {
   position: relative;
 }
 
-.mac--window {
-  border-radius: 16px;
-  background-color: var(--window-bg);
-  color: var(--window-text);
+.mac--terminal {
+  border-radius: var(--terminal-border);
+  background-color: var(--terminal-bg);
+  color: var(--terminal-text);
 
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 
@@ -62,7 +64,11 @@ main {
   font-size: 1.5rem;
 }
 
-.mac--window {
+.mac--terminal {
+
+  --number-width: 40px;
+  --terminal-header: 32px;
+  position: relative;
 
   .code--container {
     display: flex;
@@ -72,12 +78,14 @@ main {
     font-family: var(--monospaced);
     font-weight: normal;
     font-size: 0.9rem;
-    position: relative;
 
     .numbers {
-      width: 40px;
+      width: var(--number-width);
       height: 100%;
       opacity: 0.6;
+      overflow-y: hidden;
+      padding-right: 1rem;
+      text-align: right;
     }
 
     .code {
@@ -86,7 +94,10 @@ main {
   }
 
   .header {
-    height: 32px;
+    height: var(--terminal-header);
+    background-color: var(--terminal-header);
+    border-top-left-radius: var(--terminal-border);
+    border-top-right-radius: var(--terminal-border);
     display: flex;
     justify-content: flex-start;
     padding: 0.5rem;
@@ -110,34 +121,33 @@ main {
         border: 1px solid var(--bg);
 
         &:nth-of-type(1) {
-          background-color: var(--window-header-close);
+          background-color: var(--terminal-header-close);
         }
 
         &:nth-of-type(2) {
-          background-color: var(--window-header-min);
+          background-color: var(--terminal-header-min);
         }
 
         &:nth-of-type(3) {
-          background-color: var(--window-header-max);
+          background-color: var(--terminal-header-max);
         }
       }
     }
   }
 }
 
-
 .timeuntilnext {
   position: fixed;
   bottom: 2rem;
   left: 5rem;
   right: 5rem;
-  height: 0.2rem;
+  height: 0.5rem;
 
   .state {
     width: 0;
     height: 100%;
     border-radius: 0.2rem;
-    opacity: 0.3;
+    opacity: 0.4;
   }
 }
 

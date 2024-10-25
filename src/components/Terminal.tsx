@@ -1,4 +1,4 @@
-import {ConfigurationSlide} from "../model/Configuration.ts";
+import {ConfigurationSlide, estimatedTotalLines} from "../model/Configuration.ts";
 import {FC, ReactElement, useEffect, useState} from "react";
 import {$Highlighter} from "../model/Highlighter.ts";
 import {useCodeSteps} from "../model/useCodeSteps.ts";
@@ -9,7 +9,7 @@ type Props = {
 
 const Terminal: FC<Props> = ({data}) => {
     const [code, setCode] = useState<string>('');
-    const stepper = useCodeSteps(data.code.steps, () => {
+    const stepper = useCodeSteps(data.terminal.steps, () => {
         setCode(updateCode(stepper.step + 1));
     });
 
@@ -17,10 +17,10 @@ const Terminal: FC<Props> = ({data}) => {
         // all before current should be filled with the steps.text
         // the current should be untouched
         // all following should be removed
-        let ele = data.code.initial;
-        data.code.steps.forEach((_, index) => {
+        let ele = data.terminal.initial;
+        data.terminal.steps.forEach((_, index) => {
             if (index < current) {
-                ele = ele.replace(`_${index + 1}_`, data.code.steps[index].text);
+                ele = ele.replace(`_${index + 1}_`, data.terminal.steps[index].text);
             } else if (index > current) {
                 ele = ele.replace(`_${index + 1}_`, '');
             }
@@ -37,15 +37,15 @@ const Terminal: FC<Props> = ({data}) => {
     }
 
     function renderLineNumbers(): ReactElement | null {
-        if (!data.code.linenumbers) {
+        if (!data.terminal.linenumbers) {
             return null;
         }
-        const lines = dynamicCode().split('\n').map((_, index) => `${index + 1}`)
+        const lines = Array(estimatedTotalLines(data)).fill(0).map((_, index) => `${index + 1}`);
         return (
             <div className={'numbers'}>
-                <pre><code>
-                {lines.join('\n')}
-                </code></pre>
+                    <pre><code>
+                        {lines.join('\n')}
+                    </code></pre>
             </div>
         );
     }
@@ -62,12 +62,16 @@ const Terminal: FC<Props> = ({data}) => {
                 <span className={'title'}>{data.terminal.title}</span>
             </div>
 
+            {
+                data.terminal.linenumbers && <div className={"numbersarea"}/>
+            }
+
             <div className="code--container">
-                {renderLineNumbers()}
+            {renderLineNumbers()}
                 <div className="code">
                 <pre>
                     <code
-                        dangerouslySetInnerHTML={{__html: $Highlighter.forLanguage(data.code.language, dynamicCode())}}/>
+                        dangerouslySetInnerHTML={{__html: $Highlighter.forLanguage(data.terminal.language, dynamicCode())}}/>
                 </pre>
                 </div>
             </div>

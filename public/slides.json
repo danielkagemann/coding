@@ -2,28 +2,25 @@
   {
     "headline": {
       "text": "line numbers for all",
-      "wait": 0,
       "animation": "fadeIn"
     },
     "terminal": {
       "title": "swift",
-      "width": "520px"
-    },
-    "code": {
+      "width": "520px",
       "linenumbers": true,
       "initial": "_1_",
       "steps": [
         {
           "text": "struct Data {\n   var name: String\n}",
           "wait": 1,
-          "speed": 0.01
+          "speed": 0.1
         }
       ],
       "language": "swift",
-      "speed": 0.01
+      "speed": 0.1
     },
     "style": {
-      "background": "mountain-rock",
+      "background": "mesh-orange",
       "text": "#fff"
     }
   }

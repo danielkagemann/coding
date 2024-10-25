@@ -8,18 +8,18 @@ type Props = {
     duration: number
 }
 const Slide: FC<Props> = ({data, duration}) => (
-    <main className={`bg-${data.style.background}`} style={{color: data.style.text}} key={new Date().getTime()}>
+    <main className={`background ${data.style.background}`} style={{color: data.style.text}} key={new Date().getTime()}>
         {
             data.headline &&
             <div
-                className={`headline animate__animated animate__${data.headline.animation} animate__delay-${data.headline.wait}s`}>
+                className={`headline animate__animated animate__${data.headline.animation}`}>
                 <Markdown>{data.headline.text}</Markdown></div>
         }
         <Terminal data={data}/>
         {
             data.subline &&
             <div
-                className={`subline animate__animated animate__${data.subline.animation} animate__delay-${data.subline.wait}s`}>
+                className={`subline animate__animated animate__${data.subline.animation}`}>
                 <Markdown>{data.subline.text}</Markdown></div>
         }
         <div className={'timeuntilnext'}>
