@@ -41,12 +41,6 @@ export type CodeStep = z.infer<typeof stepSchema>;
 
 export function estimatedSlideDuration (slide: ConfigurationSlide): number {
     let duration = 0;
-    if (slide.headline) {
-        duration += slide.headline.wait * 1000;
-    }
-    if (slide.subline) {
-        duration += slide.subline.wait * 1000;
-    }
     slide.terminal.steps.forEach((sl) => {
         duration += (sl.wait * 1000);
         duration += sl.text.length * (sl.speed * 1000);

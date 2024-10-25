@@ -51,7 +51,7 @@ const Terminal: FC<Props> = ({data}) => {
     }
 
     return (
-        <div className="mac--window" style={{width: data.terminal.width}}>
+        <div className="mac--terminal" style={{width: data.terminal.width}}>
             <div className="header">
                 {data.terminal.menu && <div className={"menu"}>
                     <div className="dot"/>
