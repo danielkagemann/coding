@@ -71,6 +71,12 @@ main {
   position: relative;
 
   .code--container {
+
+    /* important to ignore the background coming from highlightjs theme */
+    .hljs {
+      background: inherit;
+    }
+
     display: flex;
     justify-content: flex-start;
     width: 100%;

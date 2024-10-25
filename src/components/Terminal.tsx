@@ -1,7 +1,8 @@
 import {ConfigurationSlide, estimatedTotalLines} from "../model/Configuration.ts";
 import {FC, ReactElement, useEffect, useState} from "react";
-import {$Highlighter} from "../model/Highlighter.ts";
 import {useCodeSteps} from "../model/useCodeSteps.ts";
+import "highlight.js/styles/atom-one-dark.css";
+import hljs from "highlight.js";
 
 type Props = {
     data: ConfigurationSlide
@@ -29,11 +30,16 @@ const Terminal: FC<Props> = ({data}) => {
     }
 
     useEffect(() => {
+        hljs.highlightAll();
         setCode(updateCode(0));
     }, []);
 
     function dynamicCode(): string {
-        return code.replace(`_${stepper.step + 1}_`, stepper.typer.value);
+        const ele = code.replace(`_${stepper.step + 1}_`, stepper.typer.value);
+        return hljs.highlight(
+            ele,
+            { language: data.terminal.language }
+        ).value
     }
 
     function renderLineNumbers(): ReactElement | null {
@@ -70,13 +76,16 @@ const Terminal: FC<Props> = ({data}) => {
             {renderLineNumbers()}
                 <div className="code">
                 <pre>
-                    <code
-                        dangerouslySetInnerHTML={{__html: $Highlighter.forLanguage(data.terminal.language, dynamicCode())}}/>
+                    <code dangerouslySetInnerHTML={{__html: dynamicCode()}} />
                 </pre>
                 </div>
             </div>
         </div>
     );
 }
+/*
+                    <code
+                        dangerouslySetInnerHTML={{__html: $Highlighter.forLanguage(data.terminal.language, dynamicCode())}}/>
 
+ */
 export default Terminal;

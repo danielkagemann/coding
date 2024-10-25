@@ -59,3 +59,33 @@ for headline and subline you can use markdown.
 - export image
 - export presented as video
 - ...
+```
+{
+    config: {
+        background: "#fefefe",
+        textcolor: "#212121",
+    },
+    header: {
+        text: "",
+        align: "center",
+        animate: "fadeIn"
+    },
+    footer: {
+        text: "",
+        align: "center",
+        animate: "fadeIn"
+    },
+    code: {
+        language: "text,
+        showMenu: true,
+        title: "",
+        align: "center",
+        width: "auto",
+        actions: [
+            {type:"insert", where: "", text: "..."},
+            {type:"insert", where: "_insert_", text: "..."},
+            {type:"insert", where: "", text: "..."},
+        ]
+    }
+}
+```

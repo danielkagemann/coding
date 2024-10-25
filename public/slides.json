@@ -11,7 +11,7 @@
       "initial": "_1_",
       "steps": [
         {
-          "text": "struct Data {\n   var name: String\n}",
+          "text": "struct ContentView: some View {\n  var body: some View {\n    Text(\"Hello World\")\n        .font(.caption)\n        .bold()\n  }\n}\n",
           "wait": 1,
           "speed": 0.1
         }
