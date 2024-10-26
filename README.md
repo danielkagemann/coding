@@ -3,6 +3,13 @@
 This is a small slide presentation framework to show code snippets in 
 a nice and fancy way.
 
+## frameworks used
+
+- react 
+- highlight js
+- zod
+- animate.css
+
 Just change the slides.json to fulfill your needs.
 
 ## slides syntax
