@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useTypewriter} from "./useTypewriter.ts";
-import {ConfigurationSlide, getActionPlaceholders, removePlaceholders} from "./Configuration.ts";
+import {ConfigurationSlide, getActionPlaceholders, removePlaceholders, TYPEWRITERSPEED} from "./Configuration.ts";
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 export const useActions = (slide: ConfigurationSlide, callback: Function) => {
@@ -10,12 +10,10 @@ export const useActions = (slide: ConfigurationSlide, callback: Function) => {
     useEffect(() => {
         // the index changed
         if (index < slide.code.actions.length) {
-            const SPEED = 0.03;
-
             const placeholders = getActionPlaceholders(slide);
             const text = removePlaceholders(slide.code.actions[index].text, placeholders);
 
-            typer.update(text, SPEED, () => {
+            typer.update(text, TYPEWRITERSPEED, () => {
                 setTimeout(() => {
                     callback();
                     const next = index + 1;

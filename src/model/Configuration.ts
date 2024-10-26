@@ -2,9 +2,12 @@ import {z} from "zod";
 
 const ALIGNMENTS = ["left", "center", "right"] as const;
 
+export const TYPEWRITERSPEED = 0.03;
+
 export const configScheme = z.object({
     background: z.string().default('dark'),
-    text: z.string().default('#eee')
+    text: z.string().default('#eee'),
+    showProgress: z.boolean().optional().default(true)
 });
 
 export const textScheme = z.object({
@@ -49,13 +52,34 @@ export type ConfigurationAction = z.infer<typeof actionScheme>;
 
 export function estimatedTotalLines(slide: ConfigurationSlide): number {
     // go through the slides and dry run the steps
+    const placeholders: Record<string, string> = getActionPlaceholders(slide);
+
     let text = '';
     slide.code.actions
         .filter((item) => item.type === 'insert')
         .forEach((st) => {
+            // replace all existing placeholders in this
+            if (st.where === "") {
+                text = st.text;
+            }
+
+            for (const pl in placeholders) {
+                text = text.replace(new RegExp(pl, 'g'), placeholders[pl]);
+            }
             text = text.replace(`_${st.where}_`, st.text);
         });
     return text.split('\n').length;
+}
+
+export function estimateSlideDuration(slide: ConfigurationSlide): number {
+    return slide.code.actions.reduce((pr, c) => {
+        let dur = 0;
+        if (c.type === 'insert') {
+            dur += c.text.length * (TYPEWRITERSPEED * 1000);
+        }
+        dur += (c.wait * 1000);
+        return pr + dur;
+    }, 0);
 }
 
 export function getActionPlaceholders(slide: ConfigurationSlide, last: number = -1): Record<string, string> {

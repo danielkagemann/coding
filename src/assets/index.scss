@@ -101,7 +101,7 @@ main {
   }
 
   .line-dim {
-    animation: dimOut 1s;
+    animation: dimOut 0.3s;
     animation-fill-mode: forwards;
   }
 
@@ -206,5 +206,29 @@ main {
         }
       }
     }
+  }
+}
+
+.slide--progress {
+  position: fixed;
+  bottom: 2rem;
+  left: 5rem;
+  right: 5rem;
+  height: 0.5rem;
+
+  .state {
+    width: 0;
+    height: 100%;
+    border-radius: 0.2rem;
+    opacity: 0.4;
+  }
+}
+
+@keyframes slideProgress {
+  from {
+    width: 0
+  }
+  to {
+    width: 100%;
   }
 }

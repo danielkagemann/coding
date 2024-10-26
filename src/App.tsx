@@ -1,11 +1,12 @@
-import {useEffect, useState} from "react";
-import {Configuration, scheme} from "./model/Configuration.ts";
+import {useEffect, useRef, useState} from "react";
+import {Configuration, estimateSlideDuration, scheme} from "./model/Configuration.ts";
 import Slide from "./components/Slide.tsx";
 
 function App() {
     const [config, setConfig] = useState<Configuration | null>(null);
     const [index, setIndex] = useState<number>(-1);
     const [errors, setErrors] = useState<string[]>([]);
+    const duration = useRef(0);
 
     function fetchData() {
         setErrors([]);
@@ -18,7 +19,7 @@ function App() {
                         result.error.issues.map((err) => `/${err.path.join('.')} = ${err.message}`)
                     );
                 } else {
-                    console.log(JSON.stringify(result.data,null,2));
+                    console.log(JSON.stringify(result.data, null, 2));
                     setConfig(result.data);
                     setIndex(0);
                 }
@@ -31,12 +32,13 @@ function App() {
 
     useEffect(() => {
         if (config !== null) {
-            // TODO next slide
-            /*if (index + 1 < config.length) {
+            duration.current = estimateSlideDuration(config[index]);
+            console.log(`duration is ${duration.current}`);
+            if (index + 1 < config.length) {
                 setTimeout(() => {
                     setIndex(index + 1);
-                }, estimatedSlideDuration(config[index]));
-            }*/
+                }, duration.current);
+            }
         }
     }, [index]);
 
@@ -47,12 +49,26 @@ function App() {
         </code></pre>;
     }
 
-    if (config ===null) {
+    if (config === null) {
         return <div>loading configuration</div>
     }
 
     return (
-        <Slide slide={config[index]} />
+        <>
+            <Slide slide={config[index]}/>
+            {
+                config[index].config.showProgress &&
+                <div className={'slide--progress'}>
+                    <div className={'state'}
+                         style={{
+                             animationDuration: `${duration.current}ms`,
+                             animationName: 'slideProgress',
+                             animationFillMode: 'forwards',
+                             backgroundColor: `${config[index].config.text}`
+                         }}/>
+                </div>
+            }
+        </>
     )
 }
 

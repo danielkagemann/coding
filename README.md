@@ -22,6 +22,7 @@ header and footer support markdown.
     "config": {
       "background": string, // "default"
       "text": string, // "#eee"
+      "showProgress": boolean // true
     },
     "header": {
       "text": string, 
@@ -57,20 +58,10 @@ header and footer support markdown.
 
 ## upcoming features 
 
-- error handling for invalid json configuration
-- placement (at the moment all is centered)
 - adding images with placement
 - different fonts
-- more languages only swift and typescript right now
 - control panel (refresh, manual mode)
 - export image
 - export presented as video
 - ...
-
-
-# what would be cool to have
-
-- using a slide for change
-- define the change of the new slide to the previous one
-- highlighting or dimming characters and/or lines
 

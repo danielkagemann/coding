@@ -9,7 +9,7 @@
       "animate": "slideInUp"
     },
     "config": {
-      "background": "light",
+      "background": "petersburg",
       "text": "#212121"
     },
     "code": {
@@ -24,6 +24,40 @@
           "type": "insert",
           "text": "Yo soy              ich bin\nTu eres             du bist\nEl/ella es          Er/sie ist\nNosotros somos      Wir sind\nUstedes son         Sie sind (formal)\nElla/ellos son      Sie sind (Gruppe)\n",
           "where": ""
+        },
+        {
+          "type": "highlight",
+          "where": [1],
+          "wait": 1.5
+        },
+        {
+          "type": "highlight",
+          "where": [2],
+          "wait": 1.5
+        },
+        {
+          "type": "highlight",
+          "where": [3],
+          "wait": 1.5
+        },
+        {
+          "type": "highlight",
+          "where": [4],
+          "wait": 1.5
+        },
+        {
+          "type": "highlight",
+          "where": [5],
+          "wait": 1.5
+        },
+        {
+          "type": "highlight",
+          "where": [6],
+          "wait": 1.5
+        },
+        {
+          "type": "highlight",
+          "where": []
         }
       ]
     }

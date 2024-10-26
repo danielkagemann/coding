@@ -1,44 +1,33 @@
 [
   {
     "header": {
-      "text": "## highlight test",
-      "animate": "bounce"
+      "text": "**Simple View**"
     },
     "footer": {
-      "text": "highlighting test",
-      "animate": "slideInUp"
+      "text": "swift is awesome \uD83D\uDE80",
+      "animate": "bounceIn"
     },
     "config": {
-      "background": "light",
-      "text": "#212121"
+      "background": "mesh-bleah",
+      "text": "#fefefe"
     },
     "code": {
-      "linenumbers": false,
-      "width": "450px",
-      "showMenu": false,
-      "appearance": "light",
-      "title": "simple test",
-      "language": "md",
+      "linenumbers": true,
+      "width": "470px",
+      "showMenu": true,
+      "appearance": "dark",
+      "title": "test.ts",
+      "language": "swift",
       "actions": [
         {
           "type": "insert",
-          "text": "erste zeile\nzweite zeile\ndritte zeile",
+          "text": "// okay! let's begin.\n_struct_",
           "where": ""
         },
         {
-          "type": "highlight",
-          "where": [2],
-          "wait": 4
-        },
-        {
-          "type": "highlight",
-          "where": [3],
-          "wait": 4
-        },
-        {
-          "type": "highlight",
-          "where": [],
-          "wait": 4
+          "type": "insert",
+          "where": "_struct_",
+          "text": "struct ContentView: some View {\n  var body: some View {\n    Text(\"Hello World\")\n         .font(.caption)\n         .bold()\n  }\n}\n"
         }
       ]
     }

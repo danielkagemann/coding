@@ -1,0 +1,45 @@
+[
+  {
+    "header": {
+      "text": "## spanish - verb estar",
+      "animate": "backInLeft"
+    },
+    "footer": {
+      "text": "* used to refer to states of things or persons\n* to locate in space, people or things\n* the state of people can be physical or of mood\n* Also for the civil states",
+      "animate": "slideInUp"
+    },
+    "config": {
+      "background": "petersburg",
+      "text": "#212121"
+    },
+    "code": {
+      "linenumbers": false,
+      "width": "470px",
+      "showMenu": false,
+      "appearance": "light",
+      "title": "simple test",
+      "language": "text",
+      "actions": [
+        {
+          "type": "insert",
+          "text": "Yo estoy                    Ich bin\nTú estás                    Du bist\nÉl/ella está                Er/sie ist\nNosotros/nosotras estamos   Wir sind\nUstedes están               Sie sind (formal)\nEllos/ellas están           Er/Sie sind (Gruppe)\n_example_",
+          "where": ""
+        },
+        {
+          "type": "insert",
+          "where": "_example_",
+          "text": "\nExamples:\nYo estoy triste\nTú estás nerviosa"
+        },
+        {
+          "type": "highlight",
+          "where": [1,9],
+          "wait": 1.5
+        },
+        {
+          "type": "highlight",
+          "where": []
+        }
+      ]
+    }
+  }
+]
