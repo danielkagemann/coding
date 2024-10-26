@@ -1,27 +1,35 @@
 [
   {
-    "headline": {
-      "text": "line numbers for all",
-      "animation": "fadeIn"
+    "header": {
+      "text": "# welcome",
+      "align": "left"
     },
-    "terminal": {
-      "title": "swift",
-      "width": "520px",
-      "linenumbers": true,
-      "initial": "_1_",
-      "steps": [
+    "footer": {
+      "text": "footer",
+      "align": "right"
+    },
+    "config": {
+
+    },
+    "code": {
+      "title": "simple test",
+      "actions": [
         {
-          "text": "struct ContentView: some View {\n  var body: some View {\n    Text(\"Hello World\")\n        .font(.caption)\n        .bold()\n  }\n}\n",
-          "wait": 1,
-          "speed": 0.1
+          "type": "insert",
+          "text": "hello world _second_",
+          "where": ""
+        },
+        {
+          "type": "insert",
+          "text": "you are _third_ beautiful",
+          "where": "_second_"
+        },
+        {
+          "type": "insert",
+          "text": "very",
+          "where": "_third_"
         }
-      ],
-      "language": "swift",
-      "speed": 0.1
-    },
-    "style": {
-      "background": "mesh-orange",
-      "text": "#fff"
+      ]
     }
   }
 ]

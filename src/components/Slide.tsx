@@ -4,33 +4,24 @@ import Markdown from 'react-markdown'
 import Terminal from "./Terminal.tsx";
 
 type Props = {
-    data: ConfigurationSlide,
-    duration: number
+    slide: ConfigurationSlide
 }
-const Slide: FC<Props> = ({data, duration}) => (
-    <main className={`background ${data.style.background}`} style={{color: data.style.text}} key={new Date().getTime()}>
+const Slide: FC<Props> = ({slide}) => (
+    <main className={`background ${slide.config.background}`} style={{color: slide.config.text}} key={new Date().getTime()}>
         {
-            data.headline &&
+            slide.header &&
             <div
-                className={`headline animate__animated animate__${data.headline.animation}`}>
-                <Markdown>{data.headline.text}</Markdown></div>
+                className={`header ${slide.header.align} animate__animated animate__${slide.header.animate}`}>
+                <Markdown>{slide.header.text}</Markdown></div>
         }
-        <Terminal data={data}/>
+        <Terminal slide={slide}/>
         {
-            data.subline &&
+            slide.footer &&
             <div
-                className={`subline animate__animated animate__${data.subline.animation}`}>
-                <Markdown>{data.subline.text}</Markdown></div>
+                className={`footer ${slide.footer.align} animate__animated animate__${slide.footer.animate}`}>
+                <Markdown>{slide.footer.text}</Markdown></div>
         }
-        <div className={'timeuntilnext'}>
-            <div className={'state'}
-                 style={{
-                     animationDuration: `${duration}ms`,
-                     animationName: 'progress',
-                     animationFillMode: 'forwards',
-                     backgroundColor: `${data.style.text}`
-                 }}/>
-        </div>
+
     </main>
 );
 

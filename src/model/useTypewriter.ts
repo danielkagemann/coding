@@ -24,7 +24,7 @@ export const useTypewriter = () => {
         update: (text: string, speed: number, callback: Function) => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-expect-error
-            setData({text: text.replace(/(_[0-9]_)/g, ''), speed, value: '', index: 0, callback});
+            setData({text, speed, value: '', index: 0, callback});
         }
     }
 }
