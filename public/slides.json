@@ -1,11 +1,11 @@
 [
   {
     "header": {
-      "text": "## spanish - verb ser",
-      "animate": "backInLeft"
+      "text": "## highlight test",
+      "animate": "bounce"
     },
     "footer": {
-      "text": "* identify nationality.\n* characteristics of people. (antipatico, amable, etc.)\n* tell the time\n* profession or occupation; I am a teacher.\n* characteristics of the physique. e.g. pretty, blonde, ugly, etc.",
+      "text": "highlighting test",
       "animate": "slideInUp"
     },
     "config": {
@@ -22,8 +22,23 @@
       "actions": [
         {
           "type": "insert",
-          "text": "Yo soy              ich bin\nTu eres             du bist\nEl/ella es          Er/sie ist\nNosotros somos      Wir sind\nUstedes son         Sie sind (formal)\nElla/ellos son      Sie sind (Gruppe)\n",
+          "text": "erste zeile\nzweite zeile\ndritte zeile",
           "where": ""
+        },
+        {
+          "type": "highlight",
+          "where": [2],
+          "wait": 4
+        },
+        {
+          "type": "highlight",
+          "where": [3],
+          "wait": 4
+        },
+        {
+          "type": "highlight",
+          "where": [],
+          "wait": 4
         }
       ]
     }

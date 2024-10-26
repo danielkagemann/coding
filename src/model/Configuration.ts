@@ -14,9 +14,7 @@ export const textScheme = z.object({
 });
 
 export const wherePlaceholder = z.string({invalid_type_error: "Define a placeholder like _<nameofplaceholder>_"});
-export const whereHighlight = z.object({
-    lines: z.array(z.number())
-});
+export const whereHighlight = z.array(z.number());
 
 export const actionScheme = z.object({
     type: z.enum(['insert', 'highlight']).default('insert'),

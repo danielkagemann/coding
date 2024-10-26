@@ -29,9 +29,9 @@ const Terminal: FC<Props> = ({slide}) => {
 
         // iterate until index
         for (let index = 0; index < current; index += 1) {
+
             const {type, text, where} = slide.code.actions[index];
 
-            // only inserts
             if (type === "insert") {
                 // replace all existing placeholders in this
                 if (where === "") {
@@ -61,6 +61,23 @@ const Terminal: FC<Props> = ({slide}) => {
                 ele,
                 {language: slide.code.language}
             ).value
+        } else if (type === "highlight") {
+            const marked = hljs.highlight(
+                code,
+                {language: slide.code.language}
+            ).value;
+
+            if ((where as number[]).length === 0) {
+                return marked;
+            }
+            let lines = marked.split('\n');
+            lines = lines.map((line: string, index:number) => {
+                if ((where as number[]).includes(index + 1)) {
+                    return `<span class="line-hl">${line}</span>`;
+                }
+                return `<span class="line-dim">${line}</span>`;
+            });
+            return lines.join('\n');
         }
         return '';
     }

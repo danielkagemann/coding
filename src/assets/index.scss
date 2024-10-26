@@ -23,6 +23,7 @@
   --terminal-header-min: #FEBC2E;
   --terminal-header-max: #28C841;
   --terminal-border: 12px;
+  --mark: rgba(90, 117, 225, 0.3);
 
   --monospaced: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', Courier, monospace;
 }
@@ -55,9 +56,11 @@ main {
   &.left {
     place-self: flex-start;
   }
+
   &.right {
     place-self: flex-end;
   }
+
   &.center {
     place-self: center;
   }
@@ -69,9 +72,11 @@ main {
   &.left {
     place-self: flex-start;
   }
+
   &.right {
     place-self: flex-end;
   }
+
   &.center {
     place-self: center;
   }
@@ -93,6 +98,36 @@ main {
   &.dark {
     // dark is the default
     @include meta.load-css("highlight.js/styles/atom-one-dark.css");
+  }
+
+  .line-dim {
+    animation: dimOut 1s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes dimOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0.2;
+    }
+  }
+
+  .line-hl {
+    animation: dimIn 1s;
+    background-color: var(--mark);
+    padding: 0.1rem;
+    transform: scale(1.2);
+  }
+
+  @keyframes dimIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   &.light {
