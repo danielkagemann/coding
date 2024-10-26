@@ -1,11 +1,10 @@
 const code = `
-struct ContentView: some View {
-  var body: some View {
-    Text("Hello World")
-        .font(.caption)
-        .bold()
-  }
-}
+Yo soy.             ich bin
+Tu eres             du bist
+El/ella es          Er/sie ist
+Nosotros somos      Wir sind
+Ustedes son         Sie sind (formal)
+Ella/ellos son      Sie sind (Gruppe)
 `;
 
 let result = code.trim();

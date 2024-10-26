@@ -1,27 +1,46 @@
 [
   {
-    "headline": {
-      "text": "line numbers for all",
-      "animation": "fadeIn"
+    "header": {
+      "text": "## highlight test",
+      "animate": "bounce"
     },
-    "terminal": {
-      "title": "swift",
-      "width": "520px",
-      "linenumbers": true,
-      "initial": "_1_",
-      "steps": [
+    "footer": {
+      "text": "highlighting test",
+      "animate": "slideInUp"
+    },
+    "config": {
+      "background": "light",
+      "text": "#212121"
+    },
+    "code": {
+      "linenumbers": false,
+      "width": "450px",
+      "showMenu": false,
+      "appearance": "light",
+      "title": "simple test",
+      "language": "md",
+      "actions": [
         {
-          "text": "struct Data {\n   var name: String\n}",
-          "wait": 1,
-          "speed": 0.1
+          "type": "insert",
+          "text": "erste zeile\nzweite zeile\ndritte zeile",
+          "where": ""
+        },
+        {
+          "type": "highlight",
+          "where": [2],
+          "wait": 4
+        },
+        {
+          "type": "highlight",
+          "where": [3],
+          "wait": 4
+        },
+        {
+          "type": "highlight",
+          "where": [],
+          "wait": 4
         }
-      ],
-      "language": "swift",
-      "speed": 0.1
-    },
-    "style": {
-      "background": "mesh-orange",
-      "text": "#fff"
+      ]
     }
   }
 ]

@@ -1,17 +1,27 @@
 import {useEffect, useState} from "react";
-import {Configuration, estimatedSlideDuration, scheme} from "./model/Configuration.ts";
+import {Configuration, scheme} from "./model/Configuration.ts";
 import Slide from "./components/Slide.tsx";
 
 function App() {
-    const [config, setConfig] = useState<Configuration>({} as Configuration);
+    const [config, setConfig] = useState<Configuration | null>(null);
     const [index, setIndex] = useState<number>(-1);
+    const [errors, setErrors] = useState<string[]>([]);
 
     function fetchData() {
+        setErrors([]);
         fetch("slides.json")
             .then(response => response.json())
             .then(json => {
-                setConfig(scheme.parse(json));
-                setIndex(0);
+                const result = scheme.safeParse(json);
+                if (!result.success) {
+                    setErrors(
+                        result.error.issues.map((err) => `/${err.path.join('.')} = ${err.message}`)
+                    );
+                } else {
+                    console.log(JSON.stringify(result.data,null,2));
+                    setConfig(result.data);
+                    setIndex(0);
+                }
             });
     }
 
@@ -20,20 +30,29 @@ function App() {
     }, []);
 
     useEffect(() => {
-        if (index + 1 < config.length) {
-            setTimeout(() => {
-                setIndex(index + 1);
-            }, estimatedSlideDuration(config[index]));
+        if (config !== null) {
+            // TODO next slide
+            /*if (index + 1 < config.length) {
+                setTimeout(() => {
+                    setIndex(index + 1);
+                }, estimatedSlideDuration(config[index]));
+            }*/
         }
     }, [index]);
 
-    if (scheme.safeParse(config).error) {
-        return <div>loading data...</div>;
+    if (errors.length > 0) {
+        return <pre><code>
+            we have some errors in configuration file
+            {errors.map((err) => `${err}\n`)}
+        </code></pre>;
     }
 
+    if (config ===null) {
+        return <div>loading configuration</div>
+    }
 
     return (
-        <Slide data={config[index]} duration={estimatedSlideDuration(config[index])}/>
+        <Slide slide={config[index]} />
     )
 }
 

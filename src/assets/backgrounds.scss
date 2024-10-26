@@ -6,6 +6,15 @@
   for inspiration
  */
 .background {
+
+  &.dark {
+    background-image: linear-gradient(-40deg, #555 0%, #878787 100%);
+  }
+
+  &.light {
+    background-image: linear-gradient(-40deg, #fff 0%, #dedede 100%);
+  }
+
   &.mesh-delphium {
     background-color: hsla(173, 77%, 83%, 1);
     background-image: radial-gradient(circle at 5% 1%, hsla(250, 76%, 61%, 1) 7%, transparent 84%), radial-gradient(circle at 7% 81%, hsla(184, 91%, 91%, 1) 16%, transparent 53%), radial-gradient(circle at 11% 29%, hsla(213, 97%, 75%, 1) 8%, transparent 74%), radial-gradient(circle at 39% 52%, hsla(149, 93%, 64%, 1) 6%, transparent 68%), radial-gradient(circle at 90% 50%, hsla(118, 94%, 89%, 1) 2%, transparent 85%);
@@ -41,7 +50,6 @@
     background-image: radial-gradient(circle at 0% 99%, hsla(41, 100%, 50%, 1) 0%, transparent 67%), radial-gradient(circle at 46% 94%, hsla(357, 100%, 50%, 1) 0%, transparent 81%), radial-gradient(circle at 93% 95%, hsla(266, 100%, 23%, 1) 0%, transparent 66%), radial-gradient(circle at 89% 8%, hsla(236, 100%, 9%, 1) 0%, transparent 150%);
     background-blend-mode: normal, normal, normal, normal;
   }
-
 
 
   &.petersburg {

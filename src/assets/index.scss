@@ -1,3 +1,6 @@
+// highlightjs theming support
+@use "sass:meta";
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -11,13 +14,16 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --terminal-header: #1B1F24;
+  --number-width: 40px;
+  --terminal-header: 32px;
+  --terminal-header-text: #323232;
   --terminal-bg: #0D1117;
   --terminal-text: #eee;
   --terminal-header-close: #FF5F57;
   --terminal-header-min: #FEBC2E;
   --terminal-header-max: #28C841;
   --terminal-border: 12px;
+  --mark: rgb(248, 221, 43);
 
   --monospaced: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', Courier, monospace;
 }
@@ -41,9 +47,42 @@ main {
   place-items: center;
   place-content: center;
   position: relative;
+  padding: 2rem;
 }
 
-.mac--terminal {
+.header {
+  font-size: 3rem;
+
+  &.left {
+    place-self: flex-start;
+  }
+
+  &.right {
+    place-self: flex-end;
+  }
+
+  &.center {
+    place-self: center;
+  }
+}
+
+.footer {
+  font-size: 1.5rem;
+
+  &.left {
+    place-self: flex-start;
+  }
+
+  &.right {
+    place-self: flex-end;
+  }
+
+  &.center {
+    place-self: center;
+  }
+}
+
+.terminal {
   border-radius: var(--terminal-border);
   background-color: var(--terminal-bg);
   color: var(--terminal-text);
@@ -54,23 +93,57 @@ main {
   min-width: 200px;
   height: auto;
   min-height: 200px;
-}
-
-.headline {
-  font-size: 3rem;
-}
-
-.subline {
-  font-size: 1.5rem;
-}
-
-.mac--terminal {
-
-  --number-width: 40px;
-  --terminal-header: 32px;
   position: relative;
 
+  &.dark {
+    // dark is the default
+    @include meta.load-css("highlight.js/styles/atom-one-dark.css");
+  }
+
+  .line-dim {
+    animation: dimOut 1s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes dimOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0.2;
+    }
+  }
+
+  .line-hl {
+    animation: dimIn 1s;
+    background-color: var(--mark);
+    padding: 0.1rem;
+    transform: scale(1.2);
+  }
+
+  @keyframes dimIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  &.light {
+    --terminal-header-text: #dfdfdf;
+    --terminal-bg: #eee;
+    --terminal-text: #212121;
+    @include meta.load-css("highlight.js/styles/atom-one-light.css");
+  }
+
   .code--container {
+
+    /* important to ignore the background coming from highlightjs theme */
+    .hljs {
+      background: inherit;
+    }
+
     display: flex;
     justify-content: flex-start;
     width: 100%;
@@ -95,7 +168,7 @@ main {
 
   .header {
     height: var(--terminal-header);
-    background-color: var(--terminal-header);
+    background-color: var(--terminal-header-text);
     border-top-left-radius: var(--terminal-border);
     border-top-right-radius: var(--terminal-border);
     display: flex;
@@ -133,29 +206,5 @@ main {
         }
       }
     }
-  }
-}
-
-.timeuntilnext {
-  position: fixed;
-  bottom: 2rem;
-  left: 5rem;
-  right: 5rem;
-  height: 0.5rem;
-
-  .state {
-    width: 0;
-    height: 100%;
-    border-radius: 0.2rem;
-    opacity: 0.4;
-  }
-}
-
-@keyframes progress {
-  from {
-    width: 0
-  }
-  to {
-    width: 100%;
   }
 }
