@@ -3,7 +3,7 @@ import {z} from "zod";
 const ALIGNMENTS = ["left", "center", "right"] as const;
 
 export const configScheme = z.object({
-    background: z.string().default('default'),
+    background: z.string().default('dark'),
     text: z.string().default('#eee')
 });
 
@@ -22,12 +22,13 @@ export const actionScheme = z.object({
     type: z.enum(['insert', 'highlight']).default('insert'),
     where: wherePlaceholder.or(whereHighlight),
     text: z.string().default(""),
-    wait: z.number().default(0)
+    wait: z.number().default(1)
 });
 
 export const codeScheme = z.object({
     language: z.string().default("text"),
     showMenu: z.boolean().default(true),
+    appearance: z.enum(["light", "dark"]).optional().default("dark"),
     linenumbers: z.boolean().default(false),
     title: z.string().default(""),
     align: z.enum(ALIGNMENTS).optional().default("center"),

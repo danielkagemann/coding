@@ -7,8 +7,12 @@
  */
 .background {
 
-  &.default {
+  &.dark {
     background-image: linear-gradient(-40deg, #555 0%, #878787 100%);
+  }
+
+  &.light {
+    background-image: linear-gradient(-40deg, #fff 0%, #dedede 100%);
   }
 
   &.mesh-delphium {

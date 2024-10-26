@@ -4,7 +4,6 @@ import App from './App.tsx'
 
 // the styling
 import './assets/index.scss'
-import './assets/highlight.scss'
 import './assets/backgrounds.scss'
 import 'animate.css';
 

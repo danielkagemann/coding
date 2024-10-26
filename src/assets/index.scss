@@ -1,3 +1,6 @@
+// highlightjs theming support
+@use "sass:meta";
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -86,6 +89,18 @@ main {
   height: auto;
   min-height: 200px;
   position: relative;
+
+  &.dark {
+    // dark is the default
+    @include meta.load-css("highlight.js/styles/atom-one-dark.css");
+  }
+
+  &.light {
+    --terminal-header-text: #dfdfdf;
+    --terminal-bg: #eee;
+    --terminal-text: #212121;
+    @include meta.load-css("highlight.js/styles/atom-one-light.css");
+  }
 
   .code--container {
 

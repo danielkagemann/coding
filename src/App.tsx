@@ -18,6 +18,7 @@ function App() {
                         result.error.issues.map((err) => `/${err.path.join('.')} = ${err.message}`)
                     );
                 } else {
+                    console.log(JSON.stringify(result.data,null,2));
                     setConfig(result.data);
                     setIndex(0);
                 }

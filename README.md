@@ -7,45 +7,45 @@ Just change the slides.json to fulfill your needs.
 
 ## slides syntax
 
-for headline and subline you can use markdown.
+header and footer support markdown.
 
 ```json
 [
-  "terminal": {
-    "menu": boolean,  // default true
-    "title": string,  // default empty string
-    "width": string   // auto, e.g. 520px
-  },
-  "style": {
-    "background": string,   // default "default"
-    "text": string          // color in hex default #eee
-  },
-  // headline is optional
-  "headline": {
-    "text": string,   // title to show
-    "wait": number    // time to wait in seconds (0 to 5, default 0)
-    "animation": string // use animation class from animate.css
-  },
-  // subline is optional
-  "subline": {
-    "text": string,   // title to show
-    "wait": number,    // time to wait in seconds (0 to 5, default 0)
-    "animation": string // use animation class from animate.css
-  },
-  "next": number, // seconds to wait before continuing with next slide
-  "code": {
-    "language": string,  // swift or typescript
-    "initial": string,   // initial string to use
-    "steps": [
-      {
-        "text": string,
-        "speed": number, // speed of typewriting in seconds
-        "wait": number // seconds to wait before continuing with next step
-      }
-    ]
+  {
+    "config": {
+      "background": string, // "default"
+      "text": string, // "#eee"
+    },
+    "header": {
+      "text": string, 
+      "align": enum, // "left","right", "center"
+      "animate": string // "fadeIn"
+    },
+    "footer": {
+      "text": string,
+      "align": enum, // "left","right", "center"
+      "animate": string // "fadeIn"
+    },
+    "code": {
+      "language": string, // "text",
+      "appearance": enum, // ["light", "dark"],
+      "showMenu": boolean, //true,
+      "linenumbers": boolean, // false,
+      "title": string,
+      "align":  enum, // "left","right", "center"
+      "width": string, // "auto",
+      "actions": [
+        {
+          "type": enum, // "insert","hightlight"
+          "where": string, // "",
+          "text": string
+          "wait": number, // 0
+        },
+        {...}
+      ]
+    }
   }
 ]
-
 ```
 
 ## upcoming features 
@@ -59,33 +59,11 @@ for headline and subline you can use markdown.
 - export image
 - export presented as video
 - ...
-```
-{
-    config: {
-        background: "#fefefe",
-        textcolor: "#212121",
-    },
-    header: {
-        text: "",
-        align: "center",
-        animate: "fadeIn"
-    },
-    footer: {
-        text: "",
-        align: "center",
-        animate: "fadeIn"
-    },
-    code: {
-        language: "text,
-        showMenu: true,
-        title: "",
-        align: "center",
-        width: "auto",
-        actions: [
-            {type:"insert", where: "", text: "..."},
-            {type:"insert", where: "_insert_", text: "..."},
-            {type:"insert", where: "", text: "..."},
-        ]
-    }
-}
-```
+
+
+# what would be cool to have
+
+- using a slide for change
+- define the change of the new slide to the previous one
+- highlighting or dimming characters and/or lines
+

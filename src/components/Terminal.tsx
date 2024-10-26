@@ -5,7 +5,6 @@ import {
 } from "../model/Configuration.ts";
 import {FC, ReactElement, useEffect, useState} from "react";
 import {useActions} from "../model/useActions.ts";
-import "highlight.js/styles/atom-one-dark.css";
 import hljs from "highlight.js";
 
 type Props = {
@@ -16,7 +15,6 @@ const Terminal: FC<Props> = ({slide}) => {
     const [code, setCode] = useState<string>('');
     const $actions = useActions(slide, () => {
         const next = $actions.index + 1;
-        console.log('update to next step', next);
         if (next < slide.code.actions.length) {
             const block: string = getCodeBlockTo($actions.index + 1);
             setCode(block);
@@ -82,16 +80,17 @@ const Terminal: FC<Props> = ({slide}) => {
     }
 
     return (
-        <div className="terminal" style={{width: slide.code.width}}>
-            <div className="header">
-                {slide.code.showMenu && <div className={"menu"}>
-                    <div className="dot"/>
-                    <div className="dot"/>
-                    <div className="dot"/>
+        <div className={`terminal ${slide.code.appearance}`} style={{width: slide.code.width}}>
+            {slide.code.showMenu &&
+                <div className="header">
+                    <div className={"menu"}>
+                        <div className="dot"/>
+                        <div className="dot"/>
+                        <div className="dot"/>
+                    </div>
+                    <span className={'title'}>{slide.code.title}</span>
                 </div>
-                }
-                <span className={'title'}>{slide.code.title}</span>
-            </div>
+            }
 
             {
                 slide.code.linenumbers && <div className={"numbersarea"}/>
