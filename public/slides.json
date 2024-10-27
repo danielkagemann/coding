@@ -1,33 +1,66 @@
 [
   {
     "header": {
-      "text": "**Simple View**"
+      "text": "# Step 1",
+      "animate": "flipInX"
     },
     "footer": {
-      "text": "swift is awesome \uD83D\uDE80",
-      "animate": "bounceIn"
+      "text": "syntax highlighting for a lot of languages"
     },
     "config": {
-      "background": "mesh-bleah",
-      "text": "#fefefe"
+      "background": "petersburg",
+      "text": "#212121"
     },
     "code": {
-      "linenumbers": true,
-      "width": "470px",
+      "width": "620px",
       "showMenu": true,
       "appearance": "dark",
-      "title": "test.ts",
+      "title": "generate-random.swift",
       "language": "swift",
       "actions": [
         {
           "type": "insert",
-          "text": "// okay! let's begin.\n_struct_",
+          "text": "func generateRandom (size: Int, range: ClosedRange<Int>) -> Void {\n   _1_\n}",
           "where": ""
         },
         {
           "type": "insert",
-          "where": "_struct_",
-          "text": "struct ContentView: some View {\n  var body: some View {\n    Text(\"Hello World\")\n         .font(.caption)\n         .bold()\n  }\n}\n"
+          "text": "var randomArray = Array(repeating: 0, count: size)\n      .map { _ in Int.random(in: range) }",
+          "where": "_1_"
+        },
+        {
+          "type": "insert",
+          "text": "",
+          "where": "_invalid_",
+          "wait": 2
+        }
+      ]
+    }
+  },
+  {
+    "header": {
+      "text": "# Step 2",
+      "animate": "bounceIn"
+    },
+    "footer": {
+      "text": "thanks for watching"
+    },
+    "config": {
+      "background": "petersburg",
+      "text": "#212121"
+    },
+    "code": {
+      "linenumbers": false,
+      "width": "620px",
+      "showMenu": false,
+      "appearance": "dark",
+      "title": "",
+      "language": "text",
+      "actions": [
+        {
+          "type": "insert",
+          "text": "hope you like it ! \uD83D\uDE80",
+          "where": ""
         }
       ]
     }

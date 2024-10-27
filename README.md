@@ -3,6 +3,12 @@
 This is a small slide presentation framework to show code snippets in 
 a nice and fancy way.
 
+## demo
+
+a simple presentation with two slides using different languages and windows.
+
+![](coding.gif)
+
 ## frameworks used
 
 - react 
@@ -55,13 +61,3 @@ header and footer support markdown.
   }
 ]
 ```
-
-## upcoming features 
-
-- adding images with placement
-- different fonts
-- control panel (refresh, manual mode)
-- export image
-- export presented as video
-- ...
-
